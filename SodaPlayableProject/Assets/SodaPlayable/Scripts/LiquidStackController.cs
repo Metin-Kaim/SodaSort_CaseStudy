@@ -7,6 +7,7 @@ public class LiquidStackController : MonoBehaviour
     public List<Transform> blocks;
     public List<float> heights;
     public AnimationCurve curve;
+
     void Update()
     {
         if (bottle.transform.eulerAngles.z == 0) return;
@@ -20,7 +21,6 @@ public class LiquidStackController : MonoBehaviour
             {
                 resultAngle = 360 - bottleZRot;
             }
-            print("bottleZRot: " + bottleZRot + " result: " + resultAngle);
             float b = curve.Evaluate(resultAngle);
             mat.SetFloat("_FillAmount", b * heights[i]);
         }
