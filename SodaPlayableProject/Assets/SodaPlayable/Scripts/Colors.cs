@@ -1,3 +1,5 @@
+using Assets.SodaPlayable.Scripts;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class Colors
@@ -21,4 +23,12 @@ public static class Colors
     private static Color c2_blue = new Color(49f / 255f, 141f / 255f, 255f / 255f); 
     private static Color c2_green = new Color(133f / 255f, 224f / 255f, 81f / 255f); 
     private static Color c2_red = new Color(249f / 255f, 104f / 255f, 112f / 255f);
+
+    public static Dictionary<ColorType, Color> ColorMap = new Dictionary<ColorType, Color>()
+    {
+        {ColorType.Yellow, l1_yellow },
+        {ColorType.Blue, l1_blue },
+        {ColorType.Green, l1_green },
+        {ColorType.Red, l1_red },
+    };
 }

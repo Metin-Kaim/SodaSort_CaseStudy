@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.SodaPlayable.Scripts
@@ -6,19 +7,35 @@ namespace Assets.SodaPlayable.Scripts
     public class BottleSpawnController : MonoBehaviour
     {
         [SerializeField] private BottleHandler bottlePrefab;
-        [SerializeField] private Vector2 gridSize;
-        [SerializeField] private float xDistance;
-        [SerializeField] private float yDistance;
+
+        public Vector2Int gridSize;
+        public float xDistance;
+        public float yDistance;
+
+        public List<BottleData> bottleDatas;
+
+        private byte _counter;
 
         private void Start()
         {
-            for (int x = 0; x < gridSize.x; x++)
+            for (int y = 0; y < gridSize.y; y++)
             {
-                for (int y = 0; y < gridSize.y; y++)
+                for (int x = 0; x < gridSize.x; x++)
                 {
                     BottleHandler bottleHandler = Instantiate(bottlePrefab, new Vector2(x * xDistance, -y * yDistance), Quaternion.identity, transform);
+                    bottleHandler.Init(bottleDatas[_counter], (byte)(_counter % gridSize.x));
+                    _counter++;
                 }
             }
         }
+    }
+
+    [System.Serializable]
+    public struct BottleData
+    {
+        public ColorType color1;
+        public ColorType color2;
+        public ColorType color3;
+        public ColorType color4;
     }
 }
