@@ -1,5 +1,7 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.SodaPlayable.Scripts
@@ -23,15 +25,23 @@ namespace Assets.SodaPlayable.Scripts
         public bool IsSelectable { get; set; }
         public bool IsEmpty => colorTypes.Count == 0;
         public bool IsFull => colorTypes.Count == 4;
+        public bool IsFullySameColor
+        {
+            get
+            {
+                ColorType refColor = colorTypes[0];
+                return colorTypes.All(x => x == refColor);
+            }
+        }
         public bool IsOccupied { get; set; }
         public bool IsPouring { get; private set; }
 
         private void Start()
         {
-            foreach (var item in sprites)
-            {
-                item.material = new Material(item.material);
-            }
+            //foreach (var item in sprites)
+            //{
+            //    item.material = new Material(item.material);
+            //}
         }
 
         public void Init(BottleData data, byte bottleIndex)
@@ -111,6 +121,20 @@ namespace Assets.SodaPlayable.Scripts
             secondBottle.IsSelectable = false;
             secondBottle.IsOccupied = true;
             stackController.Pour(secondBottle, colorTypes[0]);
+        }
+
+        internal void CheckComplete()
+        {
+            if (IsFull && IsFullySameColor)
+            {
+                //Complete
+                print("Completed bottle: " + bottleIndex + ", " + colorTypes[0]);
+            }
+            else
+            {
+                IsSelectable = true;
+                IsOccupied = false;
+            }
         }
     }
 }

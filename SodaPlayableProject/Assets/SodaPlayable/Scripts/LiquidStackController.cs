@@ -97,9 +97,9 @@ public class LiquidStackController : MonoBehaviour
             seq.AppendCallback(() => { renderer.enabled = false; bottleHandler.colorTypes.RemoveAt(0); });
             index++;
         }
-        seq.AppendCallback(() => { secondBottle.IsSelectable = true; secondBottle.IsOccupied = false; });
         seq.AppendCallback(() =>
         {
+            secondBottle.CheckComplete();
             bottleHandler.OnUnselect();
         });
         seq.Play();
