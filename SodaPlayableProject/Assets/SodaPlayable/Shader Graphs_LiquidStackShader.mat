@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7181711428447227804
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_LiquidStackShader
+  m_Shader: {fileID: 4800000, guid: eca734c5c0783c446b602954bd2b1da1, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BodyTex:
+        m_Texture: {fileID: 2800000, guid: deff5085c16ab472488284acb15e989f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BottomTex:
+        m_Texture: {fileID: 2800000, guid: ad995e8c744ef4b42bb72c0430029b08, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BottomTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BottomTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BottomTex3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BottomTex4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MiddleTex:
+        m_Texture: {fileID: 2800000, guid: c3039136b64514ba79aa02d6435598b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MiddleTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MiddleTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MiddleTex3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MiddleTex4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SurfaceMaskTex:
+        m_Texture: {fileID: 2800000, guid: deff5085c16ab472488284acb15e989f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SurfaceTex:
+        m_Texture: {fileID: 2800000, guid: c3039136b64514ba79aa02d6435598b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex:
+        m_Texture: {fileID: 2800000, guid: deff5085c16ab472488284acb15e989f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomHeight: 0.151
+    - _BottomStretch: 0
+    - _EdgeSoftness: 0
+    - _FillAmount: 1
+    - _FillDirection: 0
+    - _LiquidLevel: 0.5
+    - _LiquidPivotY: 0.5
+    - _LiquidRotation: 0
+    - _LiquidSlosh: 0.06
+    - _LiquidSmoothness: 0
+    - _LiquidStrength: 0
+    - _LiquidSurfaceSmoothness: 0.05
+    - _LiquidTilt: 0
+    - _LiquidTiltX: -0.826
+    - _MiddleEndY: 0.535
+    - _MiddleScaleY: -22.38
+    - _MiddleStartY: 0.225
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SplitY: 0.1
+    - _SplitYBottom: 0.15
+    - _SplitYTop: 0.275
+    - _Stack1Alpha: 1
+    - _Stack1FillAmount: 0.32
+    - _Stack1FillDirection: 0
+    - _Stack1TailAmount: 0.3
+    - _Stack1TopYOffset: 0
+    - _Stack2Alpha: 1
+    - _Stack2FillAmount: 0.32
+    - _Stack2FillDirection: 0
+    - _Stack2TailAmount: 0.3
+    - _Stack2TopYOffset: 0
+    - _Stack3Alpha: 1
+    - _Stack3FillAmount: 0.32
+    - _Stack3FillDirection: 0
+    - _Stack3TailAmount: 0.3
+    - _Stack3TopYOffset: -0.083
+    - _Stack4Alpha: 1
+    - _Stack4FillAmount: 0.32
+    - _Stack4FillDirection: 0
+    - _Stack4TailAmount: 0.3
+    - _Stack4TopYOffset: 0
+    - _SurfaceHeight: 0.212
+    - _SurfaceRadius: 0.443
+    - _SurfaceSmoothness: 0.03
+    - _SurfaceSoftness: 0.0191
+    - _TopLayerYOffset: 0
+    m_Colors:
+    - _BodyColor: {r: 1, g: 0, b: 0, a: 1}
+    - _BottomColor: {r: 1, g: 0.9058824, b: 0, a: 1}
+    - _BottomColor1: {r: 1, g: 0, b: 0, a: 1}
+    - _BottomColor2: {r: 1, g: 1, b: 0, a: 1}
+    - _BottomColor3: {r: 0, g: 0, b: 1, a: 1}
+    - _BottomColor4: {r: 0, g: 1, b: 0, a: 1}
+    - _BottomOffset: {r: 0, g: 0.03, b: 0, a: 0}
+    - _BottomOffset1: {r: 0, g: 0, b: 0, a: 0}
+    - _BottomOffset2: {r: 0, g: 0, b: 0, a: 0}
+    - _BottomOffset3: {r: 0, g: 0, b: 0, a: 0}
+    - _BottomOffset4: {r: 0, g: 0, b: 0, a: 0}
+    - _BottomTiling: {r: 1, g: 6.46, b: 0, a: 0}
+    - _BottomTiling1: {r: 1, g: 1, b: 0, a: 0}
+    - _BottomTiling2: {r: 1, g: 1, b: 0, a: 0}
+    - _BottomTiling3: {r: 1, g: 1, b: 0, a: 0}
+    - _BottomTiling4: {r: 1, g: 1, b: 0, a: 0}
+    - _Bottom_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Bottom_Tiling: {r: 1, g: 3, b: 0, a: 0}
+    - _GlobalBottomOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _GlobalBottomTiling: {r: 1, g: 20, b: 0, a: 0}
+    - _GlobalMiddleOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _GlobalMiddleTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _GlobalTopOffset: {r: 0, g: -2.25, b: 0, a: 0}
+    - _GlobalTopTiling: {r: 1, g: 10, b: 0, a: 0}
+    - _MiddleColor: {r: 1, g: 0.9048885, b: 0, a: 1}
+    - _MiddleColor1: {r: 1, g: 0, b: 0, a: 1}
+    - _MiddleColor2: {r: 1, g: 1, b: 0, a: 1}
+    - _MiddleColor3: {r: 0, g: 0, b: 1, a: 1}
+    - _MiddleColor4: {r: 0, g: 1, b: 0, a: 1}
+    - _MiddleOffset: {r: 0.47, g: -0.35, b: 0, a: 0}
+    - _MiddleTiling: {r: 2.52, g: 1.53, b: 0, a: 0}
+    - _Middle_Offset: {r: 0, g: -1, b: 0, a: 0}
+    - _Middle_Tiling: {r: 1, g: 3, b: 0, a: 0}
+    - _Stack1Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Stack2Offset: {r: 0, g: -0.22, b: 0, a: 0}
+    - _Stack3Offset: {r: 0, g: -0.44, b: 0, a: 0}
+    - _Stack4Offset: {r: 0, g: -0.66, b: 0, a: 0}
+    - _SurfaceColor: {r: 1, g: 0.0990566, b: 0.6536074, a: 1}
+    - _TopColor: {r: 0.7169812, g: 0.64477575, b: 0.09807763, a: 1}
+    - _TopColor1: {r: 0.6132076, g: 0, b: 0, a: 1}
+    - _TopColor2: {r: 0.6509434, g: 0.6509434, b: 0.003070495, a: 1}
+    - _TopColor3: {r: 0, g: 0, b: 0.6132076, a: 1}
+    - _TopColor4: {r: 0, g: 0.6981132, b: 0, a: 1}
+    - _TopOffset: {r: 0, g: -2, b: 0, a: 0}
+    - _TopOffset1: {r: 0, g: 0, b: 0, a: 0}
+    - _TopOffset2: {r: 0, g: 0, b: 0, a: 0}
+    - _TopOffset3: {r: 0, g: 0, b: 0, a: 0}
+    - _TopOffset4: {r: 0, g: 0, b: 0, a: 0}
+    - _TopTiling: {r: 1, g: 3, b: 0, a: 0}
+    - _TopTiling1: {r: 1, g: 1, b: 0, a: 0}
+    - _TopTiling2: {r: 1, g: 1, b: 0, a: 0}
+    - _TopTiling3: {r: 1, g: 1, b: 0, a: 0}
+    - _TopTiling4: {r: 1, g: 1, b: 0, a: 0}
+    - _Top_Offset: {r: 0, g: -2, b: 0, a: 0}
+    - _Top_Tiling: {r: 1, g: 3, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

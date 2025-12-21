@@ -12,6 +12,7 @@ namespace Assets.SodaPlayable.Scripts
         public byte bottleIndex;
 
         [SerializeField] private LiquidStackController stackController;
+        [SerializeField] private GameObject completeParticle;
 
         [SerializeField] private List<SpriteRenderer> sprites;
         [SerializeField] private float selectionAnimHeight = 3;
@@ -38,10 +39,10 @@ namespace Assets.SodaPlayable.Scripts
 
         private void Start()
         {
-            //foreach (var item in sprites)
-            //{
-            //    item.material = new Material(item.material);
-            //}
+            foreach (var item in sprites)
+            {
+                item.material = new Material(item.material);
+            }
         }
 
         public void Init(BottleData data, byte bottleIndex)
@@ -127,8 +128,7 @@ namespace Assets.SodaPlayable.Scripts
         {
             if (IsFull && IsFullySameColor)
             {
-                //Complete
-                print("Completed bottle: " + bottleIndex + ", " + colorTypes[0]);
+                completeParticle.SetActive(true);
             }
             else
             {

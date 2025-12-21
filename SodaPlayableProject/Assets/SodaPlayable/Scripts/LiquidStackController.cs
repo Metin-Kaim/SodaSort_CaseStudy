@@ -10,7 +10,6 @@ public class LiquidStackController : MonoBehaviour
     public List<Transform> blocks;
     public List<float> heights;
     public AnimationCurve curve;
-
     public BottleHandler bottleHandler;
 
     public List<PourAngles> pourAnglesList;
@@ -26,16 +25,16 @@ public class LiquidStackController : MonoBehaviour
     {
         if (!bottleHandler.IsPouring) return;
 
+        float bottleZRot = bottle.eulerAngles.z;
+        float resultAngle = bottleZRot;
+        if (bottleZRot > 180) //Left turn
+        {
+            resultAngle = 360 - bottleZRot;
+        }
         for (int i = 0; i < blocks.Count; i++)
         {
             Transform block = blocks[i];
             Material mat = block.GetComponent<SpriteRenderer>().material;
-            float bottleZRot = bottle.eulerAngles.z;
-            float resultAngle = bottleZRot;
-            if (bottleZRot > 180) //Left turn
-            {
-                resultAngle = 360 - bottleZRot;
-            }
             float b = curve.Evaluate(resultAngle);
             mat.SetFloat("_FillAmount", b * heights[i]);
         }
@@ -91,7 +90,8 @@ public class LiquidStackController : MonoBehaviour
             SpriteRenderer renderer = spriteRenderers[index];
             var secondAngle = pourAnglesList[index].angle2 * Vector3.forward * sideMultiplier;
             float targetFill = pourAmounts[index];
-            seq.AppendCallback(() => { secondBottle.GetComponent<LiquidStackController>().Fill(colorType, durationOfPouring); });
+            int i1 = i;
+            seq.AppendCallback(() => { secondBottle.GetComponent<LiquidStackController>().Fill(colorType, durationOfPouring, i1 == pourableSlotCount - 1); });
             seq.Append(transform.DORotate(secondAngle, durationOfPouring).SetEase(Ease.Linear));
             seq.Join(DOTween.To(() => renderer.material.GetFloat("_FillAmount"), x => renderer.material.SetFloat("_FillAmount", x), targetFill, durationOfPouring).SetEase(Ease.Linear));
             seq.AppendCallback(() => { renderer.enabled = false; bottleHandler.colorTypes.RemoveAt(0); });
@@ -99,13 +99,12 @@ public class LiquidStackController : MonoBehaviour
         }
         seq.AppendCallback(() =>
         {
-            secondBottle.CheckComplete();
             bottleHandler.OnUnselect();
         });
         seq.Play();
     }
 
-    public void Fill(ColorType colorType, float duration)
+    public void Fill(ColorType colorType, float duration, bool isFinalFilling)
     {
         Color liquidColor = Colors.ColorMap[colorType];
         SpriteRenderer targetSprite = spriteRenderers[4 - bottleHandler.colorTypes.Count - 1];
@@ -116,7 +115,9 @@ public class LiquidStackController : MonoBehaviour
         targetSprite.material.color = liquidColor;
         targetSprite.material.SetFloat("_FillAmount", initFill);
         targetSprite.enabled = true;
-        DOTween.To(() => targetSprite.material.GetFloat("_FillAmount"), x => targetSprite.material.SetFloat("_FillAmount", x), targetFill, duration).SetEase(Ease.Linear).OnComplete(() => { });
+        if (isFinalFilling)
+            bottleHandler.CheckComplete();
+        DOTween.To(() => targetSprite.material.GetFloat("_FillAmount"), x => targetSprite.material.SetFloat("_FillAmount", x), targetFill, duration).SetEase(Ease.Linear);
     }
 }
 
